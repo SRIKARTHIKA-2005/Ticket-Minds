@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineer Dashboard - TicketMinds</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/app.js"></script>
+</head>
+<body>
+    <div class="dashboard-container engineer-layout">
+        <!-- Sidebar: Ticket Queue -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <div class="logo-icon" style="background: linear-gradient(135deg, var(--accent), var(--secondary));">TM</div>
+                    <div class="logo-text">TicketMinds</div>
+                </div>
+            </div>
+            
+            <!-- Filter Bar -->
+            <div style="padding: 15px 15px 5px 15px;">
+                <label for="status-filter" style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 6px;">Filter Status</label>
+                <select id="status-filter" onchange="filterTickets()" style="width: 100%; padding: 8px 12px; font-size: 0.85rem;">
+                    <option value="ALL">All Tickets</option>
+                    <option value="Open">Open</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Resolved">Resolved</option>
+                    <option value="Closed">Closed</option>
+                </select>
+            </div>
+            
+            <div class="ticket-list" id="engineer-ticket-list">
+                <!-- Loaded dynamically -->
+                <div style="text-align: center; color: var(--text-muted); margin-top: 40px; font-size: 0.85rem;">
+                    Loading support queue...
+                </div>
+            </div>
+            
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="avatar" id="eng-avatar" style="background: var(--accent);">E</div>
+                    <div class="profile-info">
+                        <div class="profile-name" id="eng-profile-name">Support Engineer</div>
+                        <div class="profile-role">Engineer</div>
+                    </div>
+                </div>
+                <div class="logout-btn logout-btn-trigger" title="Log Out">
+                    <span style="font-size: 1.2rem;">➔</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Workspace: Chat Conversation -->
+        <div class="main-content">
+            <!-- Active Ticket Detail Header -->
+            <div class="ticket-detail-header" id="eng-ticket-header" style="display: none;">
+                <div class="ticket-detail-info">
+                    <div class="ticket-detail-title">
+                        <h2 id="eng-active-id">TM-1001</h2>
+                        <span class="ticket-detail-lang" id="eng-active-lang">Language: ES</span>
+                    </div>
+                    <div class="ticket-detail-created" id="eng-active-meta">User: customer@test.com | Created: June 9, 2026</div>
+                </div>
+                
+                <div class="status-selector">
+                    <select id="eng-status-dropdown" onchange="updateTicketStatus()" style="padding: 6px 12px; font-size: 0.85rem; font-weight: 600;">
+                        <option value="Open">Open</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Resolved">Resolved</option>
+                        <option value="Closed">Closed</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Messages Stream -->
+            <div class="chat-messages" id="eng-messages-container">
+                <!-- Welcome Placeholder -->
+                <div class="chat-placeholder" id="eng-welcome-placeholder">
+                    <div class="chat-placeholder-icon">🛠️</div>
+                    <h2>Support Queue Workstation</h2>
+                    <p style="color: var(--text-secondary); max-width: 400px; font-size: 0.95rem;">
+                        Select a support ticket from the queue list to view original messages, English translations, update status values, and review AI suggestions.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Processing Indicator -->
+            <div class="typing-indicator" id="eng-typing-indicator" style="display: none; margin-bottom: 15px;">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <span style="font-size: 0.75rem; color: var(--text-muted); margin-left: 6px;">Translating reply to user's native language...</span>
+            </div>
+
+            <!-- Chat Input Form -->
+            <div class="chat-input-container" id="eng-input-area" style="display: none;">
+                <form class="chat-input-form" id="eng-send-form">
+                    <textarea id="eng-message-input" required placeholder="Type reply in English... (system auto-translates back to user's language)"></textarea>
+                    <button type="submit" class="chat-send-btn" id="eng-send-btn" style="background: linear-gradient(135deg, var(--accent), var(--secondary));" title="Send Reply">➔</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Right Side Panel: AI Copilot & Glossary -->
+        <div class="side-panel">
+            <div class="panel-section">
+                <div class="panel-section-title">
+                    <span class="pulse"></span> AI Copilot suggestions
+                </div>
+                
+                <div id="ai-content-area">
+                    <div style="color: var(--text-muted); font-size: 0.85rem; text-align: center; padding: 20px 0;">
+                        Select a ticket to activate AI suggestions.
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-section">
+                <div class="panel-section-title">
+                    🛡️ Protected Glossary
+                </div>
+                <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.4; margin-bottom: 12px;">
+                    The following technical terms are protected by the system and are never translated to keep diagnostics consistent.
+                </p>
+                <div class="glossary-list" id="glossary-tag-list">
+                    <!-- Loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/engineer_dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicketMinds - AI-Powered Multilingual Support</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="landing-container">
+        <header>
+            <div class="logo-container">
+                <div class="logo-icon">TM</div>
+                <div class="logo-text">TicketMinds</div>
+            </div>
+            <div class="header-actions">
+                <a href="/login" class="btn-secondary">Sign In</a>
+                <a href="/register" class="btn-primary">Get Started</a>
+            </div>
+        </header>
+
+        <main class="hero-section">
+            <div>
+                <h1 class="hero-title">
+                    Break the Language Barrier in <span>Customer Support</span>.
+                </h1>
+                <p class="hero-desc">
+                    TicketMinds translates support queries in real time. Customers converse comfortably in their native language while engineers receive and answer tickets in English, backed by local AI validation and technical terms protection.
+                </p>
+                <div class="hero-actions">
+                    <a href="/login?role=user" class="btn-primary">Raise a Support Ticket</a>
+                    <a href="/login?role=engineer" class="btn-secondary">Engineer Portal</a>
+                </div>
+            </div>
+            
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <!-- Role Card 1: User -->
+                <div class="glass-panel role-card">
+                    <div class="role-icon">👤</div>
+                    <h3>Customer Portal</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                        Raise queries in Spanish, French, Chinese, or any other language and receive immediate local language assistance.
+                    </p>
+                    <a href="/login?role=user" class="btn-primary" style="width: 100%; padding: 10px;">Enter Chat Dashboard</a>
+                </div>
+
+                <!-- Role Card 2: Engineer -->
+                <div class="glass-panel role-card engineer-card">
+                    <div class="role-icon">🛠️</div>
+                    <h3>Support Engineer Portal</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary);">
+                        Review translated tickets in English, manage workflows, adjust statuses, and leverage AI suggestions.
+                    </p>
+                    <a href="/login?role=engineer" class="btn-secondary" style="width: 100%; padding: 10px;">Open Queue Dashboard</a>
+                </div>
+            </div>
+        </main>
+
+        <footer style="text-align: center; padding: 20px 0; border-top: 1px solid var(--border-color); font-size: 0.85rem; color: var(--text-muted);">
+            &copy; 2026 TicketMinds Platform. Built with Flask, SQLite, Google Translation, and Ollama. All rights reserved.
+        </footer>
+    </div>
+</body>
+</html>

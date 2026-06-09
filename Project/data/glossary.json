@@ -1,0 +1,8 @@
+{
+  "VPN": "VPN",
+  "API": "API",
+  "Firewall": "Firewall",
+  "Router": "Router",
+  "Server": "Server",
+  "Database": "Database"
+}

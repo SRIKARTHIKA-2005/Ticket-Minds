@@ -1,0 +1,11 @@
+{
+  "acknowledgement_template": "Thank you for contacting TicketMinds. Your request has been received successfully. Our support team will review your issue and respond as soon as possible.",
+  "app_name": "TicketMinds",
+  "ticket_statuses": [
+    "Open",
+    "In Progress",
+    "Resolved",
+    "Closed"
+  ],
+  "default_status": "Open"
+}

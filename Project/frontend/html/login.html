@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - TicketMinds</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/app.js"></script>
+</head>
+<body>
+    <div class="auth-wrapper">
+        <div class="glass-panel auth-card">
+            <div class="auth-header">
+                <div class="logo-container" style="justify-content: center; margin-bottom: 20px;">
+                    <div class="logo-icon">TM</div>
+                    <div class="logo-text">TicketMinds</div>
+                </div>
+                <h2>Welcome Back</h2>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 8px;">Please log in to continue</p>
+            </div>
+
+            <!-- Role Selector Tabs -->
+            <div class="auth-tabs">
+                <div class="auth-tab active" id="tab-user" onclick="setRole('user')">Customer</div>
+                <div class="auth-tab" id="tab-engineer" onclick="setRole('engineer')">Support Engineer</div>
+            </div>
+
+            <form id="login-form">
+                <input type="hidden" name="role" id="selected-role" value="user">
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="name@domain.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="••••••••">
+                </div>
+
+                <button type="submit" class="btn-primary auth-btn">
+                    Sign In as <span id="btn-role-label">Customer</span>
+                </button>
+            </form>
+
+            <div class="auth-footer">
+                Don't have an account? <a href="/register" id="register-link">Register here</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set selected role tab
+        function setRole(role) {
+            document.getElementById('selected-role').value = role;
+            
+            const userTab = document.getElementById('tab-user');
+            const engTab = document.getElementById('tab-engineer');
+            const btnLabel = document.getElementById('btn-role-label');
+            const regLink = document.getElementById('register-link');
+            
+            if (role === 'user') {
+                userTab.classList.add('active');
+                engTab.classList.remove('active');
+                btnLabel.textContent = 'Customer';
+                regLink.href = '/register?role=user';
+            } else {
+                engTab.classList.add('active');
+                userTab.classList.remove('active');
+                btnLabel.textContent = 'Support Engineer';
+                regLink.href = '/register?role=engineer';
+            }
+        }
+
+        // Parse query parameter on load
+        window.addEventListener('DOMContentLoaded', async () => {
+            // Check session. If already logged in, redirect straight to dashboards
+            const sessionData = await checkSession();
+            if (sessionData.logged_in) {
+                if (sessionData.user.role === 'engineer') {
+                    window.location.href = '/dashboard/engineer';
+                } else {
+                    window.location.href = '/dashboard/user';
+                }
+                return;
+            }
+
+            const params = new URLSearchParams(window.location.search);
+            const roleParam = params.get('role');
+            if (roleParam === 'engineer' || roleParam === 'user') {
+                setRole(roleParam);
+            }
+            
+            // Handle form submission
+            const form = document.getElementById('login-form');
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const email = document.getElementById('email').value.trim();
+                const password = document.getElementById('password').value;
+                const role = document.getElementById('selected-role').value;
+                
+                try {
+                    const res = await apiFetch('/api/auth/login', {
+                        method: 'POST',
+                        body: { email, password }
+                    });
+                    
+                    showToast('Logged in successfully!');
+                    
+                    // Direct to appropriate dashboard depending on final user role returned
+                    setTimeout(() => {
+                        if (res.user.role === 'engineer') {
+                            window.location.href = '/dashboard/engineer';
+                        } else {
+                            window.location.href = '/dashboard/user';
+                        }
+                    }, 800);
+                } catch (err) {
+                    console.error('Login error:', err);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

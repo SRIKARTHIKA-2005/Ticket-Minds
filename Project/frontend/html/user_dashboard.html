@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard - TicketMinds</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/app.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar: Ticket History -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <div class="logo-icon">TM</div>
+                    <div class="logo-text">TicketMinds</div>
+                </div>
+            </div>
+            
+            <div class="new-ticket-btn" onclick="openNewTicketModal()">
+                + Raise New Ticket
+            </div>
+            
+            <div class="ticket-list" id="ticket-history-list">
+                <!-- Loaded dynamically -->
+                <div style="text-align: center; color: var(--text-muted); margin-top: 40px; font-size: 0.85rem;">
+                    Loading ticket history...
+                </div>
+            </div>
+            
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="avatar" id="user-avatar">U</div>
+                    <div class="profile-info">
+                        <div class="profile-name" id="user-profile-name">Customer Name</div>
+                        <div class="profile-role">Customer</div>
+                    </div>
+                </div>
+                <div class="logout-btn logout-btn-trigger" title="Log Out">
+                    <span style="font-size: 1.2rem;">➔</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Workspace: Chat Conversation -->
+        <div class="main-content">
+            <!-- Active Ticket Detail Header -->
+            <div class="ticket-detail-header" id="active-ticket-header" style="display: none;">
+                <div class="ticket-detail-info">
+                    <div class="ticket-detail-title">
+                        <h2 id="active-ticket-id">TM-1001</h2>
+                        <span class="badge" id="active-ticket-status">Open</span>
+                        <span class="ticket-detail-lang" id="active-ticket-lang">Language: ES</span>
+                    </div>
+                    <div class="ticket-detail-created" id="active-ticket-created">Created: June 9, 2026</div>
+                </div>
+            </div>
+
+            <!-- Messages Stream -->
+            <div class="chat-messages" id="chat-messages-container">
+                <!-- Welcome Placeholder -->
+                <div class="chat-placeholder" id="chat-welcome-placeholder">
+                    <div class="chat-placeholder-icon">💬</div>
+                    <h2>Welcome to TicketMinds Support</h2>
+                    <p style="color: var(--text-secondary); max-width: 400px; font-size: 0.95rem;">
+                        Select an existing support ticket from the sidebar or click "Raise New Ticket" to converse with our engineering team in your native language.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Typing/Processing Indicator -->
+            <div class="typing-indicator" id="chat-typing-indicator" style="display: none; margin-bottom: 15px;">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <span style="font-size: 0.75rem; color: var(--text-muted); margin-left: 6px;">Translating and saving...</span>
+            </div>
+
+            <!-- Chat Input Form -->
+            <div class="chat-input-container" id="active-ticket-input-area" style="display: none;">
+                <form class="chat-input-form" id="chat-send-form">
+                    <textarea id="chat-message-input" required placeholder="Type your message in any language..."></textarea>
+                    <button type="submit" class="chat-send-btn" id="send-btn" title="Send Message">➔</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Raise New Ticket Modal Dialog -->
+    <div class="modal" id="new-ticket-modal">
+        <div class="glass-panel modal-content">
+            <div class="modal-header">
+                <h3>Raise New Support Ticket</h3>
+                <div class="modal-close" onclick="closeNewTicketModal()">&times;</div>
+            </div>
+            <form id="new-ticket-form">
+                <div class="form-group">
+                    <label for="initial-query-input">Describe your issue in your native language</label>
+                    <p style="font-size: 0.75rem; color: var(--text-muted); margin-bottom: 10px; line-height: 1.4;">
+                        Our translation engine automatically detects your language, preserves technical terms, and handles translation to our support engineers.
+                    </p>
+                    <textarea id="initial-query-input" rows="5" required placeholder="Example: No puedo conectarme a la VPN de la empresa. El cortafuegos bloquea el puerto 443..." style="width: 100%; height: 120px;"></textarea>
+                </div>
+                <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 20px;">
+                    <button type="button" class="btn-secondary" onclick="closeNewTicketModal()">Cancel</button>
+                    <button type="submit" class="btn-primary">Create Ticket</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/user_dashboard.js"></script>
+</body>
+</html>
