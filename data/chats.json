@@ -1,0 +1,105 @@
+{
+  "tickets": {
+    "TICK-40E537": {
+      "ticket_id": "TICK-40E537",
+      "original_language": "hi",
+      "created_at": "2026-06-09T14:10:32.864590",
+      "status": "open",
+      "sentiment": "neutral",
+      "priority": "medium",
+      "suggested_reply": "Thank you for reaching out. We have logged your request and an engineer will look into it shortly. Can you please provide your system configurations or steps to reproduce the issue?",
+      "messages": [
+        {
+          "sender": "client",
+          "original_text": "नमस्ते, मैं मॉडल को टेस्ट कर रहा हूँ।",
+          "translated_text": "Hello, I am testing the model.",
+          "timestamp": "2026-06-09T14:10:32.864590"
+        }
+      ]
+    },
+    "TICK-CBFEA1": {
+      "ticket_id": "TICK-CBFEA1",
+      "original_language": "ta",
+      "created_at": "2026-06-09T14:11:01.374887",
+      "status": "open",
+      "sentiment": "negative",
+      "priority": "high",
+      "suggested_reply": "Thank you for reporting this issue. We have escalated it to our engineering team and are investigating immediately. Could you please provide more details or any error messages you see?",
+      "messages": [
+        {
+          "sender": "client",
+          "original_text": "என் இணையம் வேலை செய்யவில்லை",
+          "translated_text": "My internet is not working",
+          "timestamp": "2026-06-09T14:11:01.374887"
+        },
+        {
+          "sender": "engineer",
+          "original_text": "Please restart your router and try again",
+          "translated_text": "உங்கள் ரூட்டரை மறுதொடக்கம் செய்து மீண்டும் முயற்சிக்கவும்",
+          "timestamp": "2026-06-09T14:11:01.955289"
+        }
+      ]
+    },
+    "TICK-6592A7": {
+      "ticket_id": "TICK-6592A7",
+      "original_language": "ta",
+      "created_at": "2026-06-09T14:11:17.555230",
+      "status": "open",
+      "sentiment": "negative",
+      "priority": "high",
+      "suggested_reply": "Thank you for reporting this issue. We have escalated it to our engineering team and are investigating immediately. Could you please provide more details or any error messages you see?",
+      "messages": [
+        {
+          "sender": "client",
+          "original_text": "என் இணையம் வேலை செய்யவில்லை",
+          "translated_text": "My internet is not working",
+          "timestamp": "2026-06-09T14:11:17.555230"
+        },
+        {
+          "sender": "engineer",
+          "original_text": "Please restart your router and try again",
+          "translated_text": "உங்கள் ரூட்டரை மறுதொடக்கம் செய்து மீண்டும் முயற்சிக்கவும்",
+          "timestamp": "2026-06-09T14:11:17.871270"
+        }
+      ]
+    },
+    "TICK-15A300": {
+      "ticket_id": "TICK-15A300",
+      "original_language": "ta",
+      "created_at": "2026-06-09T14:16:50.888330",
+      "status": "open",
+      "sentiment": "negative",
+      "priority": "high",
+      "messages": [
+        {
+          "sender": "client",
+          "original_text": "என் இணையம் வேலை செய்யவில்லை",
+          "translated_text": "My internet is not working",
+          "timestamp": "2026-06-09T14:16:50.888330"
+        },
+        {
+          "sender": "engineer",
+          "original_text": "Please restart your router and try again",
+          "translated_text": "உங்கள் ரூட்டரை மறுதொடக்கம் செய்து மீண்டும் முயற்சிக்கவும்",
+          "timestamp": "2026-06-09T14:16:51.509585"
+        }
+      ]
+    },
+    "TICK-2F1F6E": {
+      "ticket_id": "TICK-2F1F6E",
+      "original_language": "hi",
+      "created_at": "2026-06-09T14:20:54.076420",
+      "status": "open",
+      "sentiment": "neutral",
+      "priority": "medium",
+      "messages": [
+        {
+          "sender": "client",
+          "original_text": "नमस्ते, मैं इस मॉडल को टेस्ट कर रहा हूँ।",
+          "translated_text": "Hi, I am testing this model.",
+          "timestamp": "2026-06-09T14:20:54.076420"
+        }
+      ]
+    }
+  }
+}

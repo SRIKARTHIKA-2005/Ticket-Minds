@@ -1,0 +1,50 @@
+{
+  "tamil": {
+    "ticket_id": "DEMO-TAMIL",
+    "original_language": "ta",
+    "created_at": "2026-06-09T14:00:00.000000",
+    "status": "open",
+    "sentiment": "negative",
+    "priority": "high",
+    "messages": [
+      {
+        "sender": "client",
+        "original_text": "என் சிஸ்டம் வேலை செய்யவில்லை, திரையில் பிழை குறியீடு 500 காட்டுகிறது.",
+        "translated_text": "My system is not working, the screen shows error code 500.",
+        "timestamp": "2026-06-09T14:00:00.000000"
+      }
+    ]
+  },
+  "spanish": {
+    "ticket_id": "DEMO-SPANISH",
+    "original_language": "es",
+    "created_at": "2026-06-09T14:05:00.000000",
+    "status": "open",
+    "sentiment": "neutral",
+    "priority": "medium",
+    "messages": [
+      {
+        "sender": "client",
+        "original_text": "¿Cómo puedo restablecer mi contraseña? Olvidé mis datos de inicio de sesión.",
+        "translated_text": "How can I reset my password? I forgot my login details.",
+        "timestamp": "2026-06-09T14:05:00.000000"
+      }
+    ]
+  },
+  "french": {
+    "ticket_id": "DEMO-FRENCH",
+    "original_language": "fr",
+    "created_at": "2026-06-09T14:10:00.000000",
+    "status": "open",
+    "sentiment": "negative",
+    "priority": "high",
+    "messages": [
+      {
+        "sender": "client",
+        "original_text": "Le paiement a réussi mais mon abonnement n'est pas activé.",
+        "translated_text": "The payment succeeded but my subscription is not activated.",
+        "timestamp": "2026-06-09T14:10:00.000000"
+      }
+    ]
+  }
+}
